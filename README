@@ -1,0 +1,50 @@
+This is the code base for the backend service of the 
+sequence recognition automata problems and checking. 
+
+The current main function is in run.py, 
+which creates an instance runtestx in the module run.py; 
+which then can be used to for all automata tests
+
+The main() function takes 5 arguments :
+	- continuous scan denotes streamed outputs values on whether test agrees with solution DFA on each symbol in string 
+	- inputs also takes the directory path to the solution_DFA_descriptions and test_cases_files of the the current problem group. 
+(student_id, whether_continuous_scan, continuous_scan_type, curr_sol_group_directory, curr_test_group_directory)
+
+Retrieving Scores and Related Information:
+ 
+FOLLOWING 4 FUNCTIONS read individual scores/weights 
+in various forms, after self.run_one(bench_name, dfa_description) 
+is called with the appropriate solution (bench_name) 
+and the desired student dfa description. 
+
+	run_test.read_scores(self): 
+
+	run_test.read_single_score(self): 
+
+	run_test.read_weights(self): 
+
+	run_test.read_fractional_score(self): 
+
+FOLLOWING 4 FUNCTIONS read grouped scores/weights in various forms, after 
+self.run_several(dfa_description_table) 
+which runs all the problems in the ./sol_DFAs directory 
+along with a table of appropriate student dfa descriptions; 
+
+	run_test.lookup_scores(self, dsc_name): 
+
+	run_test.lookup_single_score(self, dsc_name): 
+
+	run_test.lookup_weights(self, dsc_name): 
+
+	run_test.lookup_fractional_score(self, dsc_name): 
+
+Passing in DFA Description as Instances of DFA_descript: 
+
+Use DFAs descriptions from dfa_description.desc1() and dfa_description.desc2() as models for constructing instances: 
+Essential functions are: 
+	DFA_descript.add_state(state); 
+	DFA_descript.add_transition(state_i, symbol, state_j);
+	DFA_descript.define_initial(init_state); 
+	DFA_descript.add_final(final_state); 
+	DFA_descript.add_symbol(symbol); 
+
